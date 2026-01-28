@@ -1,5 +1,5 @@
-
 Blitz_framework/LESS/.crunch
-
 .DS_Store
 node_modules
+Blitz_template/current_book
+Blitz_template/*.epub
