@@ -2,15 +2,20 @@
 
 ## Principles
 
-Blitz is leveraging the concept of inheritance. Values `inherit` and `currentColor` are being used extensively to make the framework compatible with Reading Systems’ default stylesheets, reading modes (`color`) and user settings (`font-size`, `font-family`, `line-height`, etc.).
+Blitz is leveraging the concept of inheritance. Values `inherit` and `currentColor` are being used extensively to make
+the framework compatible with Reading Systems’ default stylesheets, reading modes (`color`) and user settings
+(`font-size`, `font-family`, `line-height`, etc.).
 
-Defaults and a reset do the heavy lifting so it’s just about building on top of this base. Please note Blitz is taking care of defaults RS aren’t necessarily (HTML5 block elements, hyphens and pagebreaks for selected elements, etc.).
+Defaults and a reset do the heavy lifting so it’s just about building on top of this base. Please note Blitz is taking
+care of defaults RS aren’t necessarily (HTML5 block elements, hyphens and pagebreaks for selected elements, etc.).
 
-Finally, although we try to rely on RS’ typefaces, typography has been fine tuned (scale, vertical rhythm, hyphens, etc.).
+Finally, although we try to rely on RS’ typefaces, typography has been fine tuned (scale, vertical rhythm, hyphens,
+etc.).
 
 ## Blitz’ Architecture
 
-The various parts of Blitz have been organized using a folders structure. There are 6 folders named after their function:
+The various parts of Blitz have been organized using a folders structure. There are 6 folders named after their
+function:
 
 1. core;
 2. reference;
@@ -21,7 +26,7 @@ The various parts of Blitz have been organized using a folders structure. There 
 
 ### Core
 
-Think of this folder as Blitz’ engine. It contains two files: 
+Think of this folder as Blitz’ engine. It contains two files:
 
 1. `variables`;
 2. `rhythm`;
@@ -30,17 +35,20 @@ Think of this folder as Blitz’ engine. It contains two files:
 
 Variables is like a config file in which you can customize settings.
 
-Rhythm is the file which allows you to compute the typographic scale and vertical rhythm via functions using variables.
+Rhythm is the file which allows you to compute the typographic scale and vertical rhythm via functions using
+variables.
 
-Features exposes feature queries in the form of rulesets (see [Progressive Enhancement doc](blitz_progressive-docs.md)).
+Features exposes feature queries in the form of rulesets (see
+[Progressive Enhancement doc](blitz_progressive-docs.md)).
 
 Kindle queries provides shortcuts for Amazon Kindle-specific media queries.
 
 ### Reference
 
-The reference folder contains files you don’t want to be compiled to CSS. Those files provide mixins which are used to typeset your eBooks though.
+The reference folder contains files you don’t want to be compiled to CSS. Those files provide mixins which are used to
+typeset your eBooks though.
 
-By default, you’ll find 5 files in this folder: 
+By default, you’ll find 5 files in this folder:
 
 1. `enhancements` (static mixins for progressive enhancement);
 2. `font-stacks` (variables that can be re-used for `font-family`)
@@ -58,7 +66,7 @@ Base is to be considered the backbone of the CSS output. It consists of
 1. reset;
 2. page layout (`@page` and `body`);
 3. typography for common elements;
-3. `figure` and `img` styles.
+4. `figure` and `img` styles.
 
 This base should cover the needs of most eBooks (i.e. novels).
 
@@ -70,34 +78,37 @@ All extensions are optional which means that you could delete those files, the C
 
 In this folder you’ll find files for:
 
-- code; 
+- code;
 - lists;
 - definition lists;
 - medias (SVG, canvas, audio and video);
 - rules i.e. `hr`;
 - tables.
 
-Those files are specific and serves one function so, for instance, you could add one for asides, another one for indexes, etc.
+Those files are specific and serves one function so, for instance, you could add one for asides, another one for
+indexes, etc.
 
 ### Utils
 
-Utils consists of functional classes you might not want to output in your CSS. Basically, you could put all of these into the “reference” folder. 
+Utils consists of functional classes you might not want to output in your CSS. Basically, you could put all of these
+into the “reference” folder.
 
 By default, we have decided to compile them.
 
-In this folder you’ll find: 
+In this folder you’ll find:
 
 - break (page-breaks);
 - containers (wraps, width and height classes for `div`, `section`, `figure`, etc.);
 - utilities i.e. classes with a single purpose (display, text align, margins, etc.).
 
-Bear in mind they are used to style elements across the whole system though so you can’t delete those files and expect your CSS to compile.
+Bear in mind they are used to style elements across the whole system though so you can’t delete those files and expect
+your CSS to compile.
 
 ## Blitz.less
 
 This file is meant to output your CSS. It’s basically a list of imports you can customize.
 
-By default, it imports every other part of the framework. 
+By default, it imports every other part of the framework.
 
 ```
 // Reference > won’t be output, utils can be imported as reference if you want
@@ -141,7 +152,8 @@ Please also note it specifies an UTF-8 charset and namespaces for XHTML, EPUB, M
 @charset "UTF-8";
 ```
 
-This charset may come in handy when using the `content` property since you can specify the real character instead of its hex value. 
+This charset may come in handy when using the `content` property since you can specify the real character instead of
+its hex value.
 
 ```
 @namespace h "http://www.w3.org/1999/xhtml/";
@@ -156,7 +168,9 @@ Those namespaces allow you to style stuff such as `epub:type`, MathML and SVG.
 
 The Blitz CSS Framework is making extensive use of variables and mixins.
 
-The idea is that you can think of this as a “CSS API” which facilitates the creation of eBook-compliant stylesheets or templates. Indeed, Blitz lets you automate type scale and vertical rhythm, layout pages and elements in an eBook-friendly manner and use eBook-specific elements such as blank-line context change and asterisms.
+The idea is that you can think of this as a “CSS API” which facilitates the creation of eBook-compliant stylesheets or
+templates. Indeed, Blitz lets you automate type scale and vertical rhythm, layout pages and elements in an
+eBook-friendly manner and use eBook-specific elements such as blank-line context change and asterisms.
 
 ### Variables
 
@@ -209,9 +223,10 @@ Blitz ships with a handful of global variables which allows for the creation of 
 - `@ol-type-nested`
 - `@ol-type-position`
 
-### Parametric mixins 
+### Parametric mixins
 
-Blitz provides parametric mixins to enforce vertical rhythm, achieve top-notch hyphenation, override defaults and layout elements on the page. Is also ships with generators for color palettes and columns.
+Blitz provides parametric mixins to enforce vertical rhythm, achieve top-notch hyphenation, override defaults and
+layout elements on the page. Is also ships with generators for color palettes and columns.
 
 #### Typography
 
@@ -234,7 +249,7 @@ Blitz provides parametric mixins to enforce vertical rhythm, achieve top-notch h
 - `.border-radius(@radius)`
 - `.linear-gradient(@origin, @start, @stop)`
 
-#### Generators 
+#### Generators
 
 - `.generate-subtle-palette(@baseColor)`
 - `.generate-comp-palette(@baseColor)`
@@ -242,7 +257,8 @@ Blitz provides parametric mixins to enforce vertical rhythm, achieve top-notch h
 
 ### Static mixins
 
-Blitz offers a large amount of mixins which can be used in various places. Since it adopted the concept of functional CSS, those mixins are output as classes by default but they can also be used as shortcuts to style elements.
+Blitz offers a large amount of mixins which can be used in various places. Since it adopted the concept of functional
+CSS, those mixins are output as classes by default but they can also be used as shortcuts to style elements.
 
 #### Typography
 
@@ -336,7 +352,7 @@ Blitz offers a large amount of mixins which can be used in various places. Since
 - `.fs-jumbo`
 - `.bold`
 - `.italic`
-- `.bold-italic` 
+- `.bold-italic`
 - `.small-caps`
 - `.caps-to-small-caps`
 - `.underline`
@@ -386,7 +402,7 @@ The `w-[number]` classes specify a width, the `h-[number]` specify an height.
 - `.wrap-90`
 - `.wrap-80`
 - `.wrap-70`
-- `.wrap-60` 
+- `.wrap-60`
 - `.wrap-50`
 - `.wrap-40`
 - `.wrap-30`
@@ -417,16 +433,16 @@ The `w-[number]` classes specify a width, the `h-[number]` specify an height.
 
 ### eBook-specific elements
 
-Blitz ships with bookish stuff that works well. Need an asterism? Got you covered! 
+Blitz ships with bookish stuff that works well. Need an asterism? Got you covered!
 
 - `hr.transition` (i.e. blank line context change)
-- `hr.asterism` (i.e. “* * *”)
+- `hr.asterism` (i.e. “\* \* \*”)
 
 ## File by File
 
 ### Variables
 
-Blitz ships with a handful of variables in variables.less: 
+Blitz ships with a handful of variables in variables.less:
 
 - flags;
 - basic typography;
@@ -437,12 +453,12 @@ Blitz ships with a handful of variables in variables.less:
 - decorations;
 - horizontal margins i.e. horizontal grid.
 
-
 #### Flags
 
 Blits provides the `@handle-kindle` variable as a flag to output Kindle-specific adjustments.
 
-It expects a boolean (default is `true`). When set to `false`, Blitz won’t output Kindle-specific styles and work-arounds.
+It expects a boolean (default is `true`). When set to `false`, Blitz won’t output Kindle-specific styles and
+work-arounds.
 
 #### Basic typography
 
@@ -452,20 +468,23 @@ Blitz provides the following variables:
 - `@body-line-height` as a ratio (default is `1.5`);
 - `@min-line-height` as a ratio (default is `1.2`).
 
-While we advised against setting another value than `16` for `@body-font-size`, this variable may be useful if a font with a large x-height is embedded in your ePub file. 
+While we advised against setting another value than `16` for `@body-font-size`, this variable may be useful if a font
+with a large x-height is embedded in your ePub file.
 
-The ratio specified for `@body-line-height` will be used to achieve vertical rhythm. Please make sure `@body-font-size` × `@body-line-height` results in an integer as we’re rounding up.
+The ratio specified for `@body-line-height` will be used to achieve vertical rhythm. Please make sure
+`@body-font-size` × `@body-line-height` results in an integer as we’re rounding up.
 
-The ratio specific for `@min-line-height` will be used for Kindle, superscript and subscript. Historically, Kindle couldn’t handle a `line-height` inferior to `1.2`, which is the default value for this variable.
+The ratio specific for `@min-line-height` will be used for Kindle, superscript and subscript. Historically, Kindle
+couldn’t handle a `line-height` inferior to `1.2`, which is the default value for this variable.
 
 #### Headings
 
-Blitz provides the following variables: 
+Blitz provides the following variables:
 
 - `@header-font-family` (font-stack)
 - `@header-font-selector` (CSS selector)
 
-When both values aren’t set to `undefined`, Blitz will apply the font-stack to your CSS selector. In other words, if: 
+When both values aren’t set to `undefined`, Blitz will apply the font-stack to your CSS selector. In other words, if:
 
 ```
 @header-font-family: "Open Sans", Helvetica, sans-serif;
@@ -482,46 +501,52 @@ Blitz provides the following variable:
 
 - `@asterism-path` (relative path)
 
-to set the path to the `asterism.svg` file for your EPUBs.
+to set the path to the `asterism.png` file for your EPUBs.
 
 #### Rhythm
 
-The only significant variable in this part is `@scale-factor`, all other variables are presets carefully chosen for eBooks.
+The only significant variable in this part is `@scale-factor`, all other variables are presets carefully chosen for
+eBooks.
 
 To sum things up, Blitz will compute font sizes based on the scale you specify if you use the dedicated mixins.
 
 #### Colors
 
-You can specify a primary and secondary color, the default is `inherit`, which usually translates to black or white, depending on the reading mode selected e.g. night mode.
+You can specify a primary and secondary color, the default is `inherit`, which usually translates to black or white,
+depending on the reading mode selected e.g. night mode.
 
 By default, links are using the primary color – but are handled with a specific variable you can set.
 
 #### Decorations
 
-Three variables allow you to specify the width, style and color of borders. 
+Three variables allow you to specify the width, style and color of borders.
 
 - `@border-width`, in pixels
 - `@border-style` e.g. solid, dotted, etc.
-- `@border-color` (default is `currentColor`, which usually translates to black or white, depending on the reading mode selected e.g. night mode)
+- `@border-color` (default is `currentColor`, which usually translates to black or white, depending on the reading
+  mode selected e.g. night mode)
 
 Those variables are used for tables but also asides with borders.
 
 #### Horizontal grid
 
-The variable `@step` is used for horizontal margins e.g. `blockquote`. The value is specified in `%` since it will be computed depending on the parent element (width of the screen minus margin/padding) and won’t reflow with `font-size` (user setting).
+The variable `@step` is used for horizontal margins e.g. `blockquote`. The value is specified in `%` since it will be
+computed depending on the parent element (width of the screen minus margin/padding) and won’t reflow with `font-size`
+(user setting).
 
 ### Rhythm
 
 Rhythm is a set of mixins which leverage typographic and rhythmic variables to achieve vertical rhythm automatically.
 
-It introduces two functional variables which are being used in the shadows: 
+It introduces two functional variables which are being used in the shadows:
 
 - `@base-fs`, which is basically `1em`;
 - `@base-margin`, which is the specified `line-height` as an `em` value (and not a ratio).
 
-In addition, two powerful mixins are made available: 
+In addition, two powerful mixins are made available:
 
-- `.rhythm(@font-scale, @margin-top, @margin-bottom)`, which computes a `font-size`, a `line-height`, a `margin-top` and a `margin-bottom` from the arguments;
+- `.rhythm(@font-scale, @margin-top, @margin-bottom)`, which computes a `font-size`, a `line-height`, a `margin-top`
+  and a `margin-bottom` from the arguments;
 - `.fs(@font-scale)`, which computes a `font-size` and a `line-height` from the argument.
 
 Those mixins enforce vertical rhythm and compute all values from the variables you set.
@@ -530,7 +555,8 @@ All those variables and mixins are used in `typo.less` by default.
 
 ### Features
 
-This file exposes feature queries in the form of rulesets (see [Progressive Enhancement doc](blitz_progressive-docs.md)).
+This file exposes feature queries in the form of rulesets (see
+[Progressive Enhancement doc](blitz_progressive-docs.md)).
 
 ### Kindle Queries
 
@@ -538,7 +564,8 @@ Kindle Queries provides `@mobi7` and `@kf8` shortcuts (variables) for Kindle-spe
 
 ### Enhancements
 
-Enhancements provides static mixins helping you achieve progressive enhancement in your EPUB3. **These must be used in combination with feature queries.**
+Enhancements provides static mixins helping you achieve progressive enhancement in your EPUB3. **These must be used in
+combination with feature queries.**
 
 It provides the following improvements.
 
@@ -599,16 +626,20 @@ See [Progressive Enhancement doc](blitz_progressive-docs.md) for further details
 
 The whole [§8. Breaking Within Words](https://drafts.csswg.org/css-text-4/) is implemented in `hyphens.less`.
 
-Please note this file is imported as a reference and mixins won’t be output in the CSS; they should be used in `typo.less`.
+Please note this file is imported as a reference and mixins won’t be output in the CSS; they should be used in
+`typo.less`.
 
 - `.hyphens-auto` enables hyphens
 - `.hyphens-char(@hyphens-char: auto)` specifies the character which must be used
 - `.hyphens-lines(@hyphens-lines: 2)` specifies the max number of consecutive lines which can be hyphenated
-- `.hyphens-division(@hyphens-chars-min: 6, @hyphens-chars-before: 3, @hyphens-chars-after: 2)` specifies the minimum amount of characters for which a word might be hyphenated, the minimum number of characters before and after the hyphen
+- `.hyphens-division(@hyphens-chars-min: 6, @hyphens-chars-before: 3, @hyphens-chars-after: 2)` specifies the minimum
+  amount of characters for which a word might be hyphenated, the minimum number of characters before and after the
+  hyphen
 - `.hyphens-zone(@hyphens-zone: 10%)` specifies the zone in which hyphenation might happen
-- `.hyphens-limit(@hyphens-last: always)` specifies hyphenation behavior at the end of elements, column, pages and spreads
+- `.hyphens-limit(@hyphens-last: always)` specifies hyphenation behavior at the end of elements, column, pages and
+  spreads
 
-In addition, three mixins are made available: 
+In addition, three mixins are made available:
 
 - `.disable-hyphens` e.g. headings, tables, etc.
 - `.manual-hyphens`, which must be used in combination with soft-hyphens
@@ -616,7 +647,8 @@ In addition, three mixins are made available:
 
 ### i18n
 
-This files provides static mixins for handling internationalization: font stacks, vertical and mixed writing, CJK, Arabic, Hebrew, Indic, etc.
+This files provides static mixins for handling internationalization: font stacks, vertical and mixed writing, CJK,
+Arabic, Hebrew, Indic, etc.
 
 Layout:
 
@@ -627,7 +659,7 @@ Layout:
 - `.text-orientation-upright`
 - `.text-orientation-sideways`
 
-Typography: 
+Typography:
 
 - `.line-break-auto`
 - `.line-break-loose`
@@ -689,7 +721,7 @@ These mixins are variables you can set in `reference/font-stacks` if you want to
 
 ### Overrides
 
-Four mixins are provided: 
+Four mixins are provided:
 
 - `.override-italic`, which may come in handy for italic nested in italic;
 - `.override-iBooks-links(@overrideColor: inherit)` to enforce a color in iBooks, even in night mode;
@@ -698,11 +730,13 @@ Four mixins are provided:
 
 ### Mixins
 
-Think of these mixins as utilities. 
+Think of these mixins as utilities.
 
-- `.width-center(@elWidth)` specifies a `width` and a `margin-left` to center the element it is used for (since `auto` is interpreted as `0` in legacy RMSDK)
+- `.width-center(@elWidth)` specifies a `width` and a `margin-left` to center the element it is used for (since `auto`
+  is interpreted as `0` in legacy RMSDK)
 - `.border-radius(@radius: 5px)` specifies a `border-radius`
-- `.linear-gradient(@origin: left, @start: #f0f0f0, @stop: #8c8b8b)` specifies a `background-color` and a `background-image` as a `linear-gradient` (`background-image` won’t be overridden in night mode)
+- `.linear-gradient(@origin: left, @start: #f0f0f0, @stop: #8c8b8b)` specifies a `background-color` and a
+  `background-image` as a `linear-gradient` (`background-image` won’t be overridden in night mode)
 - `.generate-subtle-palette(@baseColor)` generates a subtle color palette based on the argument
 - `.generate-comp-palette(@baseColor)` generates a complementary color palette based on the argument
 - `.generate-columns(@n, @i: 1) when (@i =< @n)` generates an horizontal grid
@@ -714,13 +748,13 @@ Reset was designed to… reset all elements.
 
 It also makes sure HTML5 block elements are displayed as blocks in EPUB 2 reading systems.
 
-Moreover, it’s a sanitized foundation we build upon. The benefits are manifold: 
+Moreover, it’s a sanitized foundation we build upon. The benefits are manifold:
 
 - we avoid useless repetitions (DRY i.e. Don’t Repeat Yourself);
 - we enforce backwards compatibility for HTML5 bloc elements;
 - we make sure we don’t disable user settings;
 - we fix some very specific bugs (e.g. text-align in Kobo iOS);
-- etc. 
+- etc.
 
 Here are the defaults.
 
@@ -771,7 +805,8 @@ This file is meant to specify anything typography (font sizes, line-heights, rhy
 
 Typographic variables and mixins are used extensively for typesetting a maximum number of elements.
 
-Also, humanist and old style font stacks based on Myriad Pro and Minion Pro are made available trough mixins and CSS classes.
+Also, humanist and old style font stacks based on Myriad Pro and Minion Pro are made available trough mixins and CSS
+classes.
 
 ### Image
 
@@ -789,11 +824,11 @@ This file contains styles for `dl`, `dt` and `dd`. If your book contains a gloss
 
 ### Rules
 
-This file provides several horizontal rules: 
+This file provides several horizontal rules:
 
 - a vanilla `hr` i.e. a rule;
 - a transition `hr` i.e. a blank-line context change;
-- an asterism `hr` i.e. “* * *” achieved using an external SVG file.
+- an asterism `hr` i.e. “\* \* \*” achieved using an external SVG file.
 
 ### Table
 

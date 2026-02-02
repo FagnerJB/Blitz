@@ -5,8 +5,17 @@
   Codename: Cool Under Heat
   License: MIT (https://opensource.org/licenses/MIT)
 */
-@namespace h "http://www.w3.org/1999/xhtml/";
-@namespace epub "http://www.idpf.org/2007/ops";
+@namespace h 'http://www.w3.org/1999/xhtml/';
+@namespace epub 'http://www.idpf.org/2007/ops';
+.bg-white {
+  background-color: #fff
+}
+.max-w-lg {
+  max-width: 512px
+}
+.max-w-xl {
+  max-width: 576px
+}
 address,
 article,
 aside,
@@ -56,6 +65,7 @@ nav,
 section {
   display: block
 }
+.hidden,
 [hidden] {
   display: none
 }

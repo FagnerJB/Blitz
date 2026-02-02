@@ -160,7 +160,7 @@
 - `.fs-jumbo`
 - `.bold`
 - `.italic`
-- `.bold-italic` 
+- `.bold-italic`
 - `.small-caps`
 - `.caps-to-small-caps`
 - `.underline`
@@ -212,7 +212,7 @@
 - `.wrap-90`
 - `.wrap-80`
 - `.wrap-70`
-- `.wrap-60` 
+- `.wrap-60`
 - `.wrap-50`
 - `.wrap-40`
 - `.wrap-30`
@@ -241,13 +241,13 @@
 - `.float-left`
 - `.float-right`
 
-### Generators 
+### Generators
 
 - `.generate-subtle-palette(@baseColor)`
 - `.generate-comp-palette(@baseColor)`
 - `.generate-columns(@n)`
 
-### Enhancements 
+### Enhancements
 
 **⚠️ Those mixins must be used in combination with feature queries.**
 

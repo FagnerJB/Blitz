@@ -14,9 +14,11 @@ It ships with:
 
 ### Feature queries
 
-You’re likely to encounter a steep learning curve if you're not familiar with passing rulesets in a mixin because that’s definitely a new layer of abstraction we could not bypass—due to preprocessors’ limitations regarding `@supports`.
+You’re likely to encounter a steep learning curve if you're not familiar with passing rulesets in a mixin because
+that’s definitely a new layer of abstraction we could not bypass—due to preprocessors’ limitations regarding
+`@supports`.
 
-Syntax is the same as the query: 
+Syntax is the same as the query:
 
 - `@supports feature` becomes `.supports-feature`;
 - `@supports not feature` becomes `.supports-not-feature`.
@@ -44,27 +46,32 @@ or, if you want to gather several declarations in the same feature query…
 });
 ```
 
-What differentiates those mixins from others is the javascriptesque `({ … })` only. It’s really hard to tell the difference at first sight. 
+What differentiates those mixins from others is the javascriptesque `({ … })` only. It’s really hard to tell the
+difference at first sight.
 
-Now, enhancements absolutely need this or else you’ll have issues all over the place in Reading Systems using Adobe’s ePub2 RMSDK.
+Now, enhancements absolutely need this or else you’ll have issues all over the place in Reading Systems using Adobe’s
+ePub2 RMSDK.
 
 ### Mixins
 
 There’s a bunch of new mixins you might want to use for `initial-letter`, reflowable images with a caption, etc.
 
-To make things clearer, defaults have been set for some arguments—and yep, you do have to pass some arguments as strings.
+To make things clearer, defaults have been set for some arguments—and yep, you do have to pass some arguments as
+strings.
 
 ### EPUB 3 Utilities
 
-They’ve been designed as a reference so that they are not output in the CSS. The assumption is that if they were output by default, people could maybe use them without feature queries (`@supports`), resulting in the entire stylesheet being ignored in some Reading Apps.
+They’ve been designed as a reference so that they are not output in the CSS. The assumption is that if they were
+output by default, people could maybe use them without feature queries (`@supports`), resulting in the entire
+stylesheet being ignored in some Reading Apps.
 
-You’ve got mixins for flexbox, vertical-align – which relies on flexbox –, objects sizing and open type features. 
+You’ve got mixins for flexbox, vertical-align – which relies on flexbox –, objects sizing and open type features.
 
 Mixins’ names match features’ names whenever possible.
 
 ### Usage
 
-Get used to this syntax although it’s a pita… 
+Get used to this syntax although it’s a pita…
 
 ```
 h1 {
@@ -101,7 +108,7 @@ h1 {
 
 Both queries will bubble up as expected.
 
-Let’s take a more complex example. 
+Let’s take a more complex example.
 
 ```
 /*section*/
@@ -127,7 +134,8 @@ Let’s take a more complex example.
 });
 ```
 
-If you want to gather declarations in the same feature query, especially as performance may suffer if there are too many feature queries in your CSS, then you have to nest declarations in the mixin.
+If you want to gather declarations in the same feature query, especially as performance may suffer if there are too
+many feature queries in your CSS, then you have to nest declarations in the mixin.
 
 ## API
 
