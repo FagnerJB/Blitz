@@ -201,7 +201,7 @@ const newBook = async () => {
    }
 
    files.forEach(async (file) => {
-      await updateFile(`./Blitz_template/current_book/${file}`, replaces)
+      await updateFile(`./Blitz_template/current_book/OEBPS/${file}`, replaces)
    })
 }
 
@@ -255,7 +255,7 @@ const newTemplates = async () => {
    let files
 
    try {
-      files = await fs.readdir('./Blitz_template/current_book/OEBPS/Text')
+      files = await fs.readdir('./Blitz_template/current_book/OEBPS/content')
    } catch (fail) {
       console.error('Error reading directory:', fail)
       return
