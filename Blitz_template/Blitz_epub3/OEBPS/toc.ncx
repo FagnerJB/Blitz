@@ -11,7 +11,7 @@
    </docTitle>
    <navMap>
 
-      <navPoint id="nav-00">
+      <navPoint id="title">
          <navLabel>
             <text>%TITLE%</text>
          </navLabel>

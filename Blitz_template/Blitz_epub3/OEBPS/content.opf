@@ -151,6 +151,10 @@
          properties="cover-image" />
       <item href="assets/images/asterism.png" id="asterism.png"
          media-type="image/png" />
+      <item
+         href="assets/images/ctrlaltverso-dark.jpg" id="ctrlaltverso-dark.jpg"
+         media-type="image/jpeg"
+      />
 
       <item href="content/00-titlepage.xhtml"
          id="xhtml-00-titlepage"
