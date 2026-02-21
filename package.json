@@ -35,14 +35,16 @@
       "epub-zip": "github:JayPanoz/epub-zip",
       "inquirer": "^13.2.1",
       "key-value-file": "^1.0.10",
-      "less": "^3.9.0"
+      "less": "^3.9.0",
+      "nodemon": "^3.1.11"
    },
    "scripts": {
       "build": "npm run build:default && npm run build:lite && npm run build:reset",
-      "build:default": "lessc Blitz_framework/LESS/blitz.less Blitz_framework/CSS/blitz.css && cleancss --format beautify -o Blitz_framework/CSS/AltStylesheets/blitz.uncommented.css Blitz_framework/CSS/blitz.css && cpx Blitz_framework/CSS/blitz.css Blitz_template/Blitz_epub3/OEBPS/assets && cpx Blitz_framework/CSS/blitz.css Blitz_template/current_book/OEBPS/assets",
+      "build:default": "lessc Blitz_framework/LESS/blitz.less Blitz_framework/CSS/blitz.commented.css && cleancss --format beautify -o Blitz_framework/CSS/blitz.css Blitz_framework/CSS/blitz.commented.css && cpx Blitz_framework/CSS/blitz.css Blitz_template/Blitz_epub3/OEBPS/assets && cpx Blitz_framework/CSS/blitz.css Blitz_template/current_book/OEBPS/assets",
       "build:lite": "lessc Blitz_framework/LESS/blitz-lite.less Blitz_framework/CSS/AltStylesheets/blitz-lite/blitz-lite.css && cleancss --format beautify -o Blitz_framework/CSS/AltStylesheets/blitz-lite/blitz-lite.css Blitz_framework/CSS/AltStylesheets/blitz-lite/blitz-lite.css && cleancss -o Blitz_framework/CSS/AltStylesheets/blitz-lite/blitz-lite.min.css Blitz_framework/CSS/AltStylesheets/blitz-lite/blitz-lite.css",
       "build:reset": "lessc Blitz_framework/LESS/blitz-reset.less Blitz_framework/CSS/AltStylesheets/blitz-reset/blitz-reset.css && cleancss --format beautify -o Blitz_framework/CSS/AltStylesheets/blitz-reset/blitz-reset.css Blitz_framework/CSS/AltStylesheets/blitz-reset/blitz-reset.css && cleancss -o Blitz_framework/CSS/AltStylesheets/blitz-reset/blitz-reset.min.css Blitz_framework/CSS/AltStylesheets/blitz-reset/blitz-reset.css",
       "make": "node scripts/make.mjs",
-      "new": "node scripts/new.mjs"
+      "new": "node scripts/new.mjs",
+      "watch": "nodemon"
    }
 }

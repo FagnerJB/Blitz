@@ -21,9 +21,9 @@ hr {
 }
 
 /* Blank-line context change */
-hr.transition {
+hr.is-style-transition {
    width: 100%;
-   .no-margin;
+   .m-0;
    height: @base-margin;
    border: none;
    background: none; /* Note: overridden in night mode excepted when using linear-gradient */
@@ -32,14 +32,28 @@ hr.transition {
 /* Over-engineered asterism with an SVG background
 which is legacy RMSDK-compliant, reflows with text and
 is night-mode compatible (black asterisk + white border) */
-hr.asterism {
+hr.is-style-asterism {
    width: auto;
    border: none;
    margin: @base-margin 0;
    height: @base-margin;
-   .no-indent;
+   .indent-0;
    text-align: center;
-   background: transparent url(@asterism-path) no-repeat center;
+   background: transparent url(./images/asterism.png) center no-repeat;
    overflow: hidden;
    opacity: 0.7;
+}
+
+hr.is-style-dots {
+   .width-center(3);
+   border-top-width: (((@border-width * 10) / @body-font-size) + 0em);
+   border-top-style: dotted;
+   opacity: 1;
+}
+
+hr.is-style-wide {
+   .width-center(50);
+   border-top: (((@border-width * 4) / @body-font-size) + 0em) solid
+      @border-color;
+   opacity: 0.75;
 }

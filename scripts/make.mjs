@@ -1,12 +1,12 @@
 import fs from 'fs/promises'
 import epubZip from 'epub-zip'
-import { parseFile } from 'key-value-file'
+import { getInfo } from './utils.mjs'
 
 const init = async () => {
-   const info = await parseFile('./Blitz_template/current_book/INFO.env')
+   const info = await getInfo()
 
-   const title = remSpaces(info.get('TITLE'))
-   const author = remSpaces(info.get('AUTHOR'))
+   const title = remSpaces(info.title)
+   const author = remSpaces(info.author)
    await updateContent()
 
    const content = await epubZip('./Blitz_template/current_book')

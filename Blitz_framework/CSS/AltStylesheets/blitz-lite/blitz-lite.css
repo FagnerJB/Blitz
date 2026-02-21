@@ -7,14 +7,44 @@
 */
 @namespace h 'http://www.w3.org/1999/xhtml/';
 @namespace epub 'http://www.idpf.org/2007/ops';
-.bg-white {
-  background-color: #fff
+.max-w-3xs {
+  max-width: 256px
+}
+.max-w-2xs {
+  max-width: 288px
+}
+.max-w-xs {
+  max-width: 320px
+}
+.max-w-sm {
+  max-width: 384px
+}
+.max-w-md {
+  max-width: 448px
 }
 .max-w-lg {
   max-width: 512px
 }
 .max-w-xl {
   max-width: 576px
+}
+.max-w-2xl {
+  max-width: 672px
+}
+.max-w-3xl {
+  max-width: 768px
+}
+.max-w-4xl {
+  max-width: 896px
+}
+.max-w-5xl {
+  max-width: 1024px
+}
+.max-w-6xl {
+  max-width: 1152px
+}
+.max-w-7xl {
+  max-width: 1280px
 }
 address,
 article,
@@ -79,7 +109,7 @@ h6,
 pre {
   text-align: left
 }
-nav[epub|type~=toc] ol {
+nav.nav-toc ol {
   list-style: none!important
 }
 @media amzn-kf8,
@@ -88,8 +118,8 @@ amzn-mobi {
     list-style-type: none!important
   }
 }
-nav[epub|type~=landmarks],
-nav[epub|type~=page-list] {
+nav.nav-page-list,
+nav.navlandmarks {
   display: none
 }
 a,
@@ -147,11 +177,10 @@ body {
   widows: 2;
   orphans: 2
 }
-.align-center,
-.align-left,
-.align-right,
-.caption,
-.no-hyphens,
+.has-text-align-center,
+.has-text-align-left,
+.has-text-align-right,
+.wp-element-caption,
 address,
 blockquote p cite,
 caption,
@@ -246,6 +275,7 @@ h3 {
   }
 }
 h4 {
+  text-indent: 1em;
   font-size: 1em;
   line-height: 1.5;
   margin-top: 1.5em;
@@ -257,12 +287,16 @@ h4 {
     margin: 1em 0 0 0
   }
 }
-p {
-  text-indent: 1em
+h5 {
+  text-indent: 1em;
+  font-weight: 600
+}
+h6 {
+  text-indent: 1em;
+  font-weight: 600
 }
 .footnote {
-  font-size: .9375em;
-  line-height: 1.6;
+  font-size: .8125em;
   text-indent: 0
 }
 @media amzn-mobi {
@@ -282,10 +316,18 @@ blockquote p {
   text-indent: 0;
   font-style: italic
 }
-blockquote p cite,
+blockquote cite,
 blockquote p em,
 blockquote p i {
   font-style: normal
+}
+blockquote cite {
+  margin-top: .75em
+}
+@media amzn-mobi {
+  blockquote cite {
+    margin-top: 1em
+  }
 }
 a {
   text-decoration: underline;
@@ -374,10 +416,9 @@ figure {
     break-inside: auto
   }
 }
-.caption,
+.wp-element-caption,
 figcaption {
-  font-size: .9375em;
-  line-height: 1.6;
+  font-size: .8125em;
   text-indent: 0
 }
 img {
@@ -387,18 +428,24 @@ img {
   object-fit: contain;
   vertical-align: bottom
 }
-img.portrait {
+figure.is-style-portrait img {
   width: auto;
   max-width: 100%;
   height: 100%;
   max-height: 95%
 }
-.float-left img,
-.float-right img {
+.alignleft img,
+.alignright img {
   width: 100%
 }
 @supports (height:99vh) {
-  img.portrait {
+  figure.is-style-portrait img {
     height: 99vh
   }
+}
+svg {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain
 }

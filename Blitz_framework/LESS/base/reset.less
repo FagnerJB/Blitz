@@ -79,7 +79,7 @@ pre {
 }
 
 /* Following EPUB 3 spec by the letter (applies to RS but let’s make sure it is respected because we never know) */
-nav[epub|type~='toc'] ol {
+nav.nav-toc ol {
    list-style: none !important;
 }
 
@@ -93,8 +93,8 @@ nav[epub|type~='toc'] ol {
 }
 
 /* [Opinionated] Default to prevent bloat in case linear="no" is rendered as linear="yes" */
-nav[epub|type~='landmarks'],
-nav[epub|type~='page-list'] {
+nav.navlandmarks,
+nav.nav-page-list {
    display: none;
 }
 

@@ -1,7 +1,8 @@
 import fs from 'fs/promises'
 import inquirer from 'inquirer'
-import { parseFile } from 'key-value-file'
 import { randomUUID } from 'crypto'
+
+import { getInfo } from './utils.mjs'
 
 const templates = [
    {
@@ -106,10 +107,7 @@ const templates = [
 
 const init = async () => {
    try {
-      await fs.access(
-         './Blitz_template/current_book/INFO.env',
-         fs.constants.F_OK,
-      )
+      await fs.access('./Blitz_template/current_book', fs.constants.F_OK)
    } catch {
       try {
          await newBook()
@@ -146,7 +144,7 @@ const newBook = async () => {
          type: 'input',
          name: 'subtitle',
          message: 'Subtitle/Short description:',
-         required: true,
+         default: '',
       },
       { type: 'input', name: 'author', message: 'Author:', required: true },
       {
@@ -169,14 +167,6 @@ const newBook = async () => {
          default: '',
       },
    ])
-
-   const info = await parseFile('./Blitz_template/current_book/INFO.env')
-
-   info
-      .set('TITLE', answers.title)
-      .set('AUTHOR', answers.author)
-      .set('LANG', answers.lang)
-      .writeFile()
 
    const files = [
       'content.opf',
@@ -294,7 +284,7 @@ const updateNav = async (template, count) => {
    try {
       await fs.writeFile(filePath, data)
    } catch (fail) {
-      console.error('Error writing file:', failç)
+      console.error('Error writing file:', fail)
       return
    }
 
@@ -378,10 +368,10 @@ const creteTemplate = async (template, count) => {
       return
    }
 
-   const info = await parseFile('./Blitz_template/current_book/INFO.env')
+   const info = await getInfo()
 
-   data = data.replaceAll('%TITLE%', info.get('TITLE'))
-   data = data.replaceAll('%LANG%', info.get('LANG'))
+   data = data.replaceAll('%TITLE%', info.title)
+   data = data.replaceAll('%LANG%', info.lang)
    data = data.replaceAll('%ROLE%', template.role)
    data = data.replaceAll('%TYPE%', template.type)
    data = data.replaceAll('%FILE%', template.file)

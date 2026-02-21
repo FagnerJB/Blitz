@@ -3,362 +3,377 @@
 /* Display */
 
 .block {
-  display: block;
+   display: block;
 }
 
 .inline-block {
-  display: inline-block;
+   display: inline-block;
 }
 
-.hidden { 			  /* Typical usage: EPUB 3 landmarks inline TOC */
-  display: none;
+.hidden {
+   /* Typical usage: EPUB 3 landmarks inline TOC */
+   display: none;
 }
 
 /* May be useful for EPUB 3.1, warning .absolute in ePubCheck in EPUB 3.0.1
 .relative {
-  position: relative;   
+  position: relative;
 }
 
 .absolute {
-  position: absolute;   
-}   
+  position: absolute;
+}
 */
 
 /* Clearings */
-    
-.clear {              /* may be useful if an element is floating in a container */
-  clear: both;
+
+.clear-both {
+   /* may be useful if an element is floating in a container */
+   clear: both;
 }
 
 .clear-left {
-  clear: left;   
+   clear: left;
 }
 
 .clear-right {
-  clear: right;   
+   clear: right;
 }
 
 /* Bordered content */
 
-.boxed {
-  border: ((@border-width / @body-font-size) + 0em) @border-style @border-color; /* Current color = color of text (inverted in night mode) */
-  @computed-padding: (((@body-font-size * @body-line-height) - (@border-width * 2)) / @body-font-size);
-  padding: ((@computed-padding / 2) + 0em);
+.p-1 {
+   @computed-padding: (
+      ((@body-font-size * @body-line-height) - (@border-width * 2)) /
+         @body-font-size
+   );
+   padding: ((@computed-padding / 2) + 0em);
+}
+
+.border {
+   border: ((@border-width / @body-font-size) + 0em) @border-style @border-color; /* Current color = color of text (inverted in night mode) */
+   .p-1;
 }
 
 /* Margins */
 
-.no-margin {
-  margin: 0;
+.m-0 {
+   margin: 0;
 }
 
-.no-margin-top {
-  margin-top: 0;
+.mt-0 {
+   margin-top: 0;
 }
 
-.no-margin-bottom {
-  margin-bottom: 0;
+.mb-0 {
+   margin-bottom: 0;
 }
 
-.no-margin-left {
-  margin-left: 0;
+.ml-0 {
+   margin-left: 0;
 }
 
-.no-margin-right {
-  margin-right: 0;
+.mr-0 {
+   margin-right: 0;
 }
 
-.margin-top-s {
-  margin-top: (@base-margin / 2);
-  
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-top: round(@base-margin / 2);
-    }
-  }
+.mt-1 {
+   margin-top: (@base-margin / 2);
+
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-top: round(@base-margin / 2);
+      }
+   }
 }
 
-.margin-top-m {
-  margin-top: @base-margin;
+.mt-2 {
+   margin-top: @base-margin;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-top: round(@base-margin);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-top: round(@base-margin);
+      }
+   }
 }
 
-.margin-top-l {
-  margin-top: (@base-margin * 2);
+.mt-3 {
+   margin-top: (@base-margin * 2);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-top: round(@base-margin * 2);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-top: round(@base-margin * 2);
+      }
+   }
 }
 
-.margin-top-xl {
-  margin-top: (@base-margin * 3);
+.mt-4 {
+   margin-top: (@base-margin * 3);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-top: round(@base-margin * 3);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-top: round(@base-margin * 3);
+      }
+   }
 }
 
-.margin-top-xxl {
-  margin-top: (@base-margin * 4);
+.mt-5 {
+   margin-top: (@base-margin * 4);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-top: round(@base-margin * 4);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-top: round(@base-margin * 4);
+      }
+   }
 }
 
-.margin-bottom-s {
-  margin-bottom: (@base-margin / 2);
+.mb-1 {
+   margin-bottom: (@base-margin / 2);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-bottom: round(@base-margin / 2);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-bottom: round(@base-margin / 2);
+      }
+   }
 }
 
-.margin-bottom-m {
-  margin-bottom: @base-margin;
+.mb-2 {
+   margin-bottom: @base-margin;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-bottom: round(@base-margin);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-bottom: round(@base-margin);
+      }
+   }
 }
 
-.margin-bottom-l {
-  margin-bottom: (@base-margin * 2);
+.mb-3 {
+   margin-bottom: (@base-margin * 2);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-bottom: round(@base-margin * 2);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-bottom: round(@base-margin * 2);
+      }
+   }
 }
 
-.margin-bottom-xl {
-  margin-bottom: (@base-margin * 3);
+.mb-4 {
+   margin-bottom: (@base-margin * 3);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-bottom: round(@base-margin * 3);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-bottom: round(@base-margin * 3);
+      }
+   }
 }
 
-.margin-bottom-xxl {
-  margin-bottom: (@base-margin * 4);
+.mb-5 {
+   margin-bottom: (@base-margin * 4);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-bottom: round(@base-margin * 4);
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-bottom: round(@base-margin * 4);
+      }
+   }
 }
 
-.margin-left-s {
-  margin-left: (@step / 2);   /* % won't reflow with font-size user setting */
+.ml-1 {
+   margin-left: (@step / 2); /* % won't reflow with font-size user setting */
 }
 
-.margin-left-m {
-  margin-left: @step;   
+.ml-2 {
+   margin-left: @step;
 }
 
-.margin-left-l {
-  margin-left: (@step * 1.5);   
+.ml-3 {
+   margin-left: (@step * 1.5);
 }
 
-.margin-left-xl {
-  margin-left: (@step * 2);   
+.ml-4 {
+   margin-left: (@step * 2);
 }
 
-.margin-left-xxl {
-  margin-left: (@step * 3);   
+.ml-5 {
+   margin-left: (@step * 3);
 }
 
-.margin-right-s {
-  margin-right: (@step / 2);   /* % won't reflow with font-size user setting */
+.mr-1 {
+   margin-right: (@step / 2); /* % won't reflow with font-size user setting */
 }
 
-.margin-right-m {
-  margin-right: @step;   
+.mr-2 {
+   margin-right: @step;
 }
 
-.margin-right-l {
-  margin-right: (@step * 1.5);   
+.mr-3 {
+   margin-right: (@step * 1.5);
 }
 
-.margin-right-xl {
-  margin-right: (@step * 2);   
+.mr-4 {
+   margin-right: (@step * 2);
 }
 
-.margin-right-xxl {
-  margin-right: (@step * 3);   
+.mr-5 {
+   margin-right: (@step * 3);
 }
 
 /* Font-stacks */
 
-.sans {                     /* Typical usage: headings */
-  font-family: @sans-serif;
+.font-sans {
+   /* Typical usage: headings */
+   font-family: @sans-serif;
 }
 
-.serif {
-  font-family: @serif;
+.font-serif {
+   font-family: @serif;
 }
 
-.monospace {
-  font-family: @monospace;
+.font-mono {
+   font-family: @monospace;
 }
 
-.humanist {
-  font-family: @humanist;
+.has-humanist-font-family {
+   font-family: @humanist;
 }
 
-.geometric {
-  font-family: @geometric;
+.has-geometric-font-family {
+   font-family: @geometric;
 }
 
-.oldstyle {
-  font-family: @oldstyle;
+.has-cardo-font-family {
+   font-family: @oldstyle;
 }
 
-.modern {
-  font-family: @modern;
+.has-inter-font-family {
+   font-family: @inter;
+}
+
+.has-modern-font-family {
+   font-family: @modern;
 }
 
 /* Text align */
-    
-.justified {                /* Designed as a class for body — We don't enforce as user setting > author */
-  text-align: justify;
-  .hyphenate;
+
+.has-text-align-justify {
+   /* Designed as a class for body — We don't enforce as user setting > author */
+   text-align: justify;
+   .hyphens-auto;
 }
 
-.align-left {
-  text-align: left;
+.has-text-align-left {
+   text-align: left;
 }
 
-.align-center {
-  text-indent: 0;       /* Necessary as RS may define text-indent for p */
-  text-align: center;
+.has-text-align-center {
+   text-indent: 0; /* Necessary as RS may define text-indent for p */
+   text-align: center;
 }
 
-.align-right {
-  text-indent: 0;       /* Necessary as RS may define text-indent for p */
-  text-align: right;
+.has-text-align-right {
+   text-indent: 0; /* Necessary as RS may define text-indent for p */
+   text-align: right;
+}
+
+p.has-text-align-justify {
+   .indent-1;
 }
 
 /* Indents */
-    
-.indent {
-    text-indent: @base-fs;  
-}
-    
-.no-indent {
-  text-indent: 0;
+
+.indent-1 {
+   text-indent: @base-fs;
 }
 
-.hanging-indent {
-  text-indent: -@step;
-  margin-left: @step;      /* Since em will reflow with font-size user setting, we’re using % */
+.indent-0 {
+   text-indent: 0;
+}
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin-left: 0;         /* hack for negative text-indent */
-    }
-  }
+.indent-hanging {
+   text-indent: -@step;
+   margin-left: @step; /* Since em will reflow with font-size user setting, we’re using % */
+
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin-left: 0; /* hack for negative text-indent */
+      }
+   }
 }
 
 /* Font sizes */
-    
-.fs-xxs {
-  .fs(-2);
+
+.has-small-font-size {
+   font-size: 0.8125em;
 }
 
-.fs-xs {
-  .fs(-1.5);
+.has-medium-font-size {
+   font-size: 1.25em;
 }
 
-.fs-s {
-  .fs(-1);
+.has-large-font-size {
+   font-size: 2.25em;
 }
 
-.fs-m {
-  font-size: @base-fs;
-  line-height: inherit;    
-}
-
-.fs-l {
-  .fs(1);
-}
-
-.fs-xl {
-  .fs(2);   
-}
-
-.fs-xxl {
-  .fs(3);
-}
-
-.fs-jumbo {
-  .fs(4);
+.has-x-large-font-size {
+   font-size: 2.625em;
 }
 
 /* Font styles */
 
- /* Don't use that with span if b or strong can be used */
-.bold {
-  font-weight: bold;
+.font-thin {
+   font-weight: 100;
+}
+.font-extralight {
+   font-weight: 200;
+}
+.font-light {
+   font-weight: 300;
+}
+.font-normal {
+   font-weight: 400;
+}
+.font-medium {
+   font-weight: 500;
+}
+.font-semibold {
+   font-weight: 600;
+}
+.font-bold {
+   font-weight: 700;
+}
+.font-extrabold {
+   font-weight: 800;
+}
+.font-black {
+   font-weight: 900;
 }
 
 /* Don't use that with span if i, cite, dfn or em can be used */
 .italic {
-  font-style: italic;
-}
-
-.bold-italic {
-  font-weight: bold;
-  font-style: italic;
-}
-
-.small-caps {
-  font-variant: small-caps;
-  letter-spacing: ((1 / @body-font-size) + 0em);
-  /* The two previous props are not supported in legacy RMSDK */
+   font-style: italic;
 }
 
 .caps-to-small-caps {
-  text-transform: lowercase;    /* Don't rely on this property, text should be typed in uppercase (legacy RMSDK) */
-  .small-caps;
+   text-transform: lowercase; /* Don't rely on this property, text should be typed in uppercase (legacy RMSDK) */
+   .small-caps;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: small;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: small;
+      }
+   }
 }
 
 .underline {
-  text-decoration: underline;   
+   text-decoration: underline;
 }
 
 .line-through {
-  text-decoration: line-through;
+   text-decoration: line-through;
 }
 
 /* Misc */
 
-.no-list-type {             /* Typical usage: hiding numbers in toc */
-  list-style-type: none;   
+.list-none {
+   /* Typical usage: hiding numbers in toc */
+   list-style-type: none;
 }

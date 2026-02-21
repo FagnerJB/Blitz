@@ -1,199 +1,232 @@
 /* TYPOGRAPHY */
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 blockquote p cite,
-dt, pre, address,
-table, caption, th, td,
-.align-left, .align-center, .align-right,
-.caption,
-.no-hyphens {
-  .disable-hyphens;
+dt,
+pre,
+address,
+table,
+caption,
+th,
+td,
+.has-text-align-left,
+.has-text-align-center,
+.has-text-align-right,
+.wp-element-caption {
+   .hyphens-none;
 }
 
-h1, h2, h3, h4, h5, h6, dt, hr {
-  .no-break-inside;
-  .no-break-after;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dt,
+hr {
+   .break-inside-avoid;
+   .break-after-avoid;
 }
 
 .apply-header-font();
 
 h1 {
-  .rhythm(3, 0, 2);
+   .rhythm(3, 0, 2);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: xx-large;    /* Keywords offer more precision for mobi 7*/
-      margin: 0 0 3em 0;      /* mobi7 doesn’t support decimal values */
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: xx-large; /* Keywords offer more precision for mobi 7*/
+         margin: 0 0 3em 0; /* mobi7 doesn’t support decimal values */
+      }
+   }
 }
 
 h2 {
-  .rhythm(2, 2, 1);
+   .rhythm(2, 2, 1);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: x-large;
-      margin: 2em 0 1em 0;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: x-large;
+         margin: 2em 0 1em 0;
+      }
+   }
 }
 
 h3 {
-  .rhythm(1, 1, 1);
+   .rhythm(1, 1, 1);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: large;
-      margin: 1em 0;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: large;
+         margin: 1em 0;
+      }
+   }
 }
 
 h4 {
-  .rhythm(0, 1, 0);
+   .indent-1;
+   .rhythm(0, 1, 0);
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: medium;
-      margin: 1em 0 0 0;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: medium;
+         margin: 1em 0 0 0;
+      }
+   }
 }
 
 h5 {
-/* Styles */    
+   .indent-1;
+   .font-semibold;
 }
 
 h6 {
-/* Styles */    
-}
-
-p {
-  .indent;
+   .indent-1;
+   .font-semibold;
 }
 
 .footnote {
-  .fs-s;
-  .no-indent;
+   .has-small-font-size;
+   .indent-0;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: medium;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: medium;
+      }
+   }
 }
 
 blockquote {
-  margin: @base-margin @step;
+   margin: @base-margin @step;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      margin: floor(@base-margin) @step;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         margin: floor(@base-margin) @step;
+      }
+   }
 }
 
 blockquote p {
-  .no-indent;
-  .italic;
+   .indent-0;
+   .italic;
 }
 
 blockquote p i,
 blockquote p em,
-blockquote p cite {
-  .override-italic;
+blockquote cite {
+   .not-italic;
 }
 
-address {
-  /* Styles */    
+blockquote cite {
+   .mt-1;
 }
-
 
 /* MICRO TYPOGRAPHY */
 
 a {
-  .underline;           /* Note: KF8 will force this value unless you use "el.class a" */
-  .bold;
-  color: @link-color;
-  .override-iBooks-links(@link-color);   /* inherit = text color */
+   .underline; /* Note: KF8 will force this value unless you use "el.class a" */
+   .font-bold;
+   color: @link-color;
+   .override-iBooks-links(@link-color); /* inherit = text color */
 }
 
 abbr {
-/* Note: Kindle doesn't support that */
+   /* Note: Kindle doesn't support that */
 }
 
-i, cite, dfn, em {
-  .italic;
+i,
+cite,
+dfn,
+em {
+   .italic;
 }
 
 /* Get back to normal when italic nested in italic */
-i i, i cite, i dfn, i em,
-cite i, cite cite, cite dfn, cite em,
-dfn i, dfn cite, dfn dfn, dfn em,
-em i, em cite, em dfn, em em {
-  .override-italic;   
+i i,
+i cite,
+i dfn,
+i em,
+cite i,
+cite cite,
+cite dfn,
+cite em,
+dfn i,
+dfn cite,
+dfn dfn,
+dfn em,
+em i,
+em cite,
+em dfn,
+em em {
+   .not-italic;
 }
 
-b, strong {
-  .bold;
+b,
+strong {
+   .font-bold;
 }
 
-del, s {
-  .line-through;
+del,
+s {
+   .line-through;
 }
 
 mark {
-  background-color: yellow;
-  color: inherit;
+   background-color: yellow;
+   color: inherit;
 }
 
 ins {
-  /* Styles */
+   /* Styles */
 }
 
 small {
-  font-size: 0.8125em;
+   font-size: 0.8125em;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: small;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: small;
+      }
+   }
 }
 
 /* Styling is improved to prevent sub from affecting line-height */
 sub {
-  font-size: 75%;
-  line-height: @min-line-height;
-  vertical-align: sub;        /* Fallback */
-  vertical-align: -20%;
+   font-size: 75%;
+   line-height: @min-line-height;
+   vertical-align: sub; /* Fallback */
+   vertical-align: -20%;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: x-small;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: x-small;
+      }
+   }
 }
 
 /* Styling is improved to prevent sup from affecting line-height */
 sup {
-  font-size: 75%;
-  line-height: @min-line-height;
-  vertical-align: super;      /* Fallback */
-  vertical-align: 33%;
+   font-size: 75%;
+   line-height: @min-line-height;
+   vertical-align: super; /* Fallback */
+   vertical-align: 33%;
 
-  & when (@handle-kindle) {
-    @media @mobi7 {
-      font-size: x-small;
-    }
-  }
+   & when (@handle-kindle) {
+      @media @mobi7 {
+         font-size: x-small;
+      }
+   }
 }
 
 /* i18n */
 
 /* Ruby text */
 rt {
-  font-size: 50%; /* Line-height may need to be adjusted to fit ruby text. */
-  text-transform: full-size-kana; /* Increases the legibility of Japanese ruby characters. */
+   font-size: 50%; /* Line-height may need to be adjusted to fit ruby text. */
+   text-transform: full-size-kana; /* Increases the legibility of Japanese ruby characters. */
 }

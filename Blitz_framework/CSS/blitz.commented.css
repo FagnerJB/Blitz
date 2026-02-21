@@ -1,0 +1,1444 @@
+@charset "UTF-8";
+/*!
+  Blitz — CSS framework for reflowable eBooks
+  Version 1.5.2 by Jiminy Panoz
+  Codename: Cool Under Heat
+  License: MIT (https://opensource.org/licenses/MIT)
+*/
+/* NAMESPACES */
+@namespace h 'http://www.w3.org/1999/xhtml/';
+@namespace epub 'http://www.idpf.org/2007/ops';
+/* if you need to style epub:type */
+@namespace m 'http://www.w3.org/1998/Math/MathML/';
+/* if you need to style MathML */
+@namespace svg 'http://www.w3.org/2000/svg';
+/* if you need to style SVG */
+/* Begin CSS */
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+.flex-col {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.justify-start {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+.justify-center {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.justify-end {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.justify-between {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.justify-around {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.rounded {
+  border-radius: 100%;
+  overflow: hidden;
+}
+.valign-center {
+  min-height: 95vh;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+@media amzn-kf8 {
+  .valign-center {
+    page-break-inside: auto;
+    break-inside: auto;
+    /* Fix blank bug because of page-break-inside: avoid… */
+  }
+}
+.valign-bottom {
+  min-height: 95vh;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+@media amzn-kf8 {
+  .valign-bottom {
+    page-break-inside: auto;
+    break-inside: auto;
+    /* Fix blank bug because of page-break-inside: avoid… */
+  }
+}
+.valign-between {
+  min-height: 95vh;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.valign-around {
+  min-height: 95vh;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.object-contain {
+  object-fit: contain;
+}
+.object-fill {
+  object-fit: fill;
+}
+.object-cover {
+  object-fit: cover;
+}
+.object-none {
+  object-fit: none;
+}
+.object-scale-down {
+  object-fit: scale-down;
+}
+.bg-contain {
+  background-size: contain;
+}
+.bg-cover {
+  background-size: cover;
+}
+.kern {
+  font-kerning: normal;
+}
+.no-kern {
+  font-kerning: none;
+}
+.common-ligatures {
+  -webkit-font-variant-ligatures: common-ligatures;
+  font-variant-ligatures: common-ligatures;
+}
+.discretionary-ligatures {
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+}
+.no-common-ligatures {
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  font-variant-ligatures: no-common-ligatures;
+}
+.small-caps {
+  font-variant-caps: small-caps;
+  letter-spacing: 0.0625em;
+  /* The two previous props are not supported in legacy RMSDK */
+}
+.all-small-caps {
+  font-variant-caps: all-small-caps;
+}
+.titling-caps {
+  font-variant-caps: titling-caps;
+}
+.contextual {
+  -webkit-font-variant-ligatures: contextual;
+  font-variant-ligatures: contextual;
+}
+.lining-nums {
+  font-variant-numeric: lining-nums;
+}
+.proportional-nums {
+  font-variant-numeric: proportional-nums;
+}
+.oldstyle-nums {
+  font-variant-numeric: oldstyle-nums;
+}
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+.slashed-zero {
+  font-variant-numeric: slashed-zero;
+}
+.diagonal-fractions {
+  font-variant-numeric: diagonal-fractions;
+}
+.stacked-fractions {
+  font-variant-numeric: stacked-fractions;
+}
+.ordinal {
+  font-variant-numeric: ordinal;
+}
+.sup {
+  font-variant-position: super;
+}
+.sub {
+  font-variant-position: sub;
+}
+.max-w-3xs {
+  max-width: 256px;
+}
+.max-w-2xs {
+  max-width: 288px;
+}
+.max-w-xs {
+  max-width: 320px;
+}
+.max-w-sm {
+  max-width: 384px;
+}
+.max-w-md {
+  max-width: 448px;
+}
+.max-w-lg {
+  max-width: 512px;
+}
+.max-w-xl {
+  max-width: 576px;
+}
+.max-w-2xl {
+  max-width: 672px;
+}
+.max-w-3xl {
+  max-width: 768px;
+}
+.max-w-4xl {
+  max-width: 896px;
+}
+.max-w-5xl {
+  max-width: 1024px;
+}
+.max-w-6xl {
+  max-width: 1152px;
+}
+.max-w-7xl {
+  max-width: 1280px;
+}
+/* RESET */
+/* So here's the trick, we must reset to manage a number of problems once and for all:
+- HTML5 backwards compatibility (EPUB 3 file in EPUB 2 app);
+- user settings (e.g. line-height on Kobo and Kindle);
+- CSS bloat (DRY);
+- KFX for which a reset using `border: 0` seems to disable support;
+- etc.
+It all started as a normalize and became a reset given the magnitude of the task.
+*/
+article,
+address,
+aside,
+blockquote,
+canvas,
+dd,
+details,
+div,
+dl,
+dt,
+figure,
+figcaption,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hr,
+li,
+main,
+nav,
+ol,
+p,
+pre,
+section,
+summary,
+ul {
+  margin: 0;
+  padding: 0;
+  /* RS may apply vertical padding to el such as p */
+  font-size: 1em;
+  /* Font size in pixel disable the user setting in legacy RMSDK */
+  line-height: inherit;
+  /* Kindle ignores it, Kobo needs it. If you don’t use inherit, the user setting may be disabled on some Kobo devices */
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+}
+/* This is absolutely necessary for backwards compatibility */
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+main,
+nav,
+section {
+  display: block;
+}
+.hidden,
+[hidden] {
+  display: none;
+}
+/* [Opinionated] Default to prevent RS from justifying all of these! */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dt,
+pre {
+  text-align: left;
+}
+/* Following EPUB 3 spec by the letter (applies to RS but let’s make sure it is respected because we never know) */
+nav.nav-toc ol {
+  list-style: none !important;
+}
+/* Kindle does not follow the EPUB 3 spec. */
+@media amzn-kf8, amzn-mobi {
+  nav ol {
+    list-style-type: none !important;
+  }
+}
+/* [Opinionated] Default to prevent bloat in case linear="no" is rendered as linear="yes" */
+nav.navlandmarks,
+nav.nav-page-list {
+  display: none;
+}
+a,
+abbr,
+b,
+bdi,
+bdo,
+cite,
+code,
+data,
+del,
+dfn,
+em,
+i,
+ins,
+kbd,
+mark,
+q,
+rp,
+rt,
+rtc,
+ruby,
+s,
+samp,
+small,
+span,
+strong,
+sub,
+sup,
+time,
+var {
+  font-size: inherit;
+  vertical-align: baseline;
+  font-style: inherit;
+  /* Taking nesting of inline elements into account (e.g. sup nested in em) */
+  font-weight: inherit;
+  /* Taking nestiog of inline elements into account (e.g. em nested in strong) */
+  color: inherit;
+  text-decoration: none;
+}
+q {
+  quotes: none;
+}
+/* Trying to prevent blank page if element with margin-bottom at the end of xhtml */
+body > :last-child,
+body > section > :last-child {
+  margin-bottom: 0;
+}
+/* PAGE LAYOUT */
+@page {
+  margin: 30px 30px 20px 30px;
+  /* Recommended by Barnes & Noble in this old spec: https://simg1.imagesbn.com/pimages/pubit/support/pubit_epub_formatting_guide.pdf */
+  padding: 0;
+}
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  /* RS will override margins anyways */
+  padding: 0;
+  widows: 2;
+  /* iBooks and Kobo support widows and orphans */
+  orphans: 2;
+}
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote p cite,
+dt,
+pre,
+address,
+table,
+caption,
+th,
+td,
+.has-text-align-left,
+.has-text-align-center,
+.has-text-align-right,
+.wp-element-caption {
+  adobe-hyphenate: none;
+  /* proprietary for Legacy RMSDK */
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  -epub-hyphens: none;
+  hyphens: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dt,
+hr {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+@media amzn-kf8 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  dt,
+  hr {
+    page-break-inside: auto;
+    break-inside: auto;
+    /* Fix blank bug because of page-break-inside: avoid… */
+  }
+}
+h1 {
+  font-size: 1.4375em;
+  line-height: 1.04347826;
+  margin-top: 0em;
+  margin-bottom: 2.08695652em;
+}
+@media amzn-kf8 {
+  h1 {
+    line-height: 1.2;
+    /* Minimum value Kindle supports */
+  }
+}
+@media amzn-mobi {
+  h1 {
+    font-size: xx-large;
+    /* Keywords offer more precision for mobi 7*/
+    margin: 0 0 3em 0;
+    /* mobi7 doesn’t support decimal values */
+  }
+}
+h2 {
+  font-size: 1.3125em;
+  line-height: 1.14285714;
+  margin-top: 2.28571429em;
+  margin-bottom: 1.14285714em;
+}
+@media amzn-kf8 {
+  h2 {
+    line-height: 1.2;
+    /* Minimum value Kindle supports */
+  }
+}
+@media amzn-mobi {
+  h2 {
+    font-size: x-large;
+    margin: 2em 0 1em 0;
+  }
+}
+h3 {
+  font-size: 1.125em;
+  line-height: 1.33333333;
+  margin-top: 1.33333333em;
+  margin-bottom: 1.33333333em;
+}
+@media amzn-mobi {
+  h3 {
+    font-size: large;
+    margin: 1em 0;
+  }
+}
+h4 {
+  text-indent: 1em;
+  font-size: 1em;
+  line-height: 1.5;
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+}
+@media amzn-mobi {
+  h4 {
+    font-size: medium;
+    margin: 1em 0 0 0;
+  }
+}
+h5 {
+  text-indent: 1em;
+  font-weight: 600;
+}
+h6 {
+  text-indent: 1em;
+  font-weight: 600;
+}
+.footnote {
+  font-size: 0.8125em;
+  text-indent: 0;
+}
+@media amzn-mobi {
+  .footnote {
+    font-size: medium;
+  }
+}
+blockquote {
+  margin: 1.5em 5%;
+}
+@media amzn-mobi {
+  blockquote {
+    margin: 1em 5%;
+  }
+}
+blockquote p {
+  text-indent: 0;
+  font-style: italic;
+}
+blockquote p i,
+blockquote p em,
+blockquote cite {
+  font-style: normal;
+}
+blockquote cite {
+  margin-top: 0.75em;
+}
+@media amzn-mobi {
+  blockquote cite {
+    margin-top: 1em;
+  }
+}
+/* MICRO TYPOGRAPHY */
+a {
+  text-decoration: underline;
+  /* Note: KF8 will force this value unless you use "el.class a" */
+  font-weight: 700;
+  color: inherit;
+  -webkit-text-fill-color: inherit;
+  /* iBooks override (iOS 9 + El Capitan in night mode) */
+  /* inherit = text color */
+}
+abbr {
+  /* Note: Kindle doesn't support that */
+}
+i,
+cite,
+dfn,
+em {
+  font-style: italic;
+}
+/* Get back to normal when italic nested in italic */
+i i,
+i cite,
+i dfn,
+i em,
+cite i,
+cite cite,
+cite dfn,
+cite em,
+dfn i,
+dfn cite,
+dfn dfn,
+dfn em,
+em i,
+em cite,
+em dfn,
+em em {
+  font-style: normal;
+}
+b,
+strong {
+  font-weight: 700;
+}
+del,
+s {
+  text-decoration: line-through;
+}
+mark {
+  background-color: yellow;
+  color: inherit;
+}
+ins {
+  /* Styles */
+}
+small {
+  font-size: 0.8125em;
+}
+@media amzn-mobi {
+  small {
+    font-size: small;
+  }
+}
+/* Styling is improved to prevent sub from affecting line-height */
+sub {
+  font-size: 75%;
+  line-height: 1.2;
+  vertical-align: sub;
+  /* Fallback */
+  vertical-align: -20%;
+}
+@media amzn-mobi {
+  sub {
+    font-size: x-small;
+  }
+}
+/* Styling is improved to prevent sup from affecting line-height */
+sup {
+  font-size: 75%;
+  line-height: 1.2;
+  vertical-align: super;
+  /* Fallback */
+  vertical-align: 33%;
+}
+@media amzn-mobi {
+  sup {
+    font-size: x-small;
+  }
+}
+/* i18n */
+/* Ruby text */
+rt {
+  font-size: 50%;
+  /* Line-height may need to be adjusted to fit ruby text. */
+  text-transform: full-size-kana;
+  /* Increases the legibility of Japanese ruby characters. */
+}
+/* FIGURES + IMAGES  */
+figure {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin: 1.5em 0;
+}
+@media amzn-kf8 {
+  figure {
+    page-break-inside: auto;
+    break-inside: auto;
+    /* Fix blank bug because of page-break-inside: avoid… */
+  }
+}
+figcaption,
+.wp-element-caption {
+  font-size: 0.8125em;
+  text-indent: 0;
+}
+img {
+  width: auto;
+  max-width: 100%;
+  /* Note: KF8 doesn't support max-width hence "width: auto;" as fallback */
+  height: auto;
+  object-fit: contain;
+  vertical-align: bottom;
+  /* Remove gap after the image */
+}
+/* Note: portrait image styling + figcaption is a nightmare */
+/* See https://github.com/jstallent/ImagesSingleFile for the css hack */
+figure.is-style-portrait img {
+  width: auto;
+  max-width: 100%;
+  /* Note: KF8 doesn't support max-width hence "width: auto;" as fallback */
+  height: 100%;
+  /* We try to prevent blank page after */
+  max-height: 95%;
+  /* Max value iBooks enforces */
+}
+.alignleft img,
+.alignright img {
+  width: 100%;
+  /* If it’s auto, image in floating container will overflow on Kobo iOS + Kindle */
+}
+@supports (height: 99vh) {
+  figure.is-style-portrait img {
+    height: 99vh;
+  }
+}
+svg {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+/* LISTS */
+ul,
+ol {
+  margin: 1.5em 0;
+  padding-left: 2em;
+}
+@media amzn-mobi {
+  ul,
+  ol {
+    margin: 1em 0;
+  }
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  padding-left: 1em;
+}
+ul {
+  list-style-type: square;
+  list-style-position: outside;
+}
+ul ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+ol ol {
+  list-style-type: lower-roman;
+}
+ol.has-text-align-center,
+ul.has-text-align-center {
+  padding-left: 0;
+}
+/* DEFINITION LISTS */
+dl {
+  margin: 1.5em 0 1.5em 5%;
+}
+@media amzn-mobi {
+  dl {
+    margin: 1em 5%;
+  }
+}
+dt {
+  margin: 1.5em 0 0 0;
+  font-weight: 700;
+}
+@media amzn-mobi {
+  dt {
+    margin-top: 1em;
+  }
+}
+dd {
+  /* Styles */
+}
+dt > dfn {
+  font-style: normal;
+  font-weight: 700;
+}
+/* HORIZONTAL RULES — CONTEXT BREAKS */
+hr {
+  width: 25%;
+  margin-left: 37.5%;
+  margin-top: 1.4375em;
+  margin-bottom: 1.4375em;
+  height: 0;
+  border: none;
+  border-top: 0.125em solid currentColor;
+  /* currentColor = color of text (getting around night mode) */
+  opacity: 0.5;
+  /* Opacity -> grayscale. If opacity is declared for too many elements in a XHTML file, performance of legacy RMSDK takes a hit */
+}
+@media amzn-mobi {
+  hr {
+    margin: 1em 0;
+  }
+}
+/* Blank-line context change */
+hr.is-style-transition {
+  width: 100%;
+  margin: 0;
+  height: 1.5em;
+  border: none;
+  background: none;
+  /* Note: overridden in night mode excepted when using linear-gradient */
+}
+/* Over-engineered asterism with an SVG background
+which is legacy RMSDK-compliant, reflows with text and
+is night-mode compatible (black asterisk + white border) */
+hr.is-style-asterism {
+  width: auto;
+  border: none;
+  margin: 1.5em 0;
+  height: 1.5em;
+  text-indent: 0;
+  text-align: center;
+  background: transparent url(./images/asterism.png) center no-repeat;
+  overflow: hidden;
+  opacity: 0.7;
+}
+hr.is-style-dots {
+  width: 3%;
+  margin-left: 48.5%;
+  border-top-width: 0.625em;
+  border-top-style: dotted;
+  opacity: 1;
+}
+hr.is-style-wide {
+  width: 50%;
+  margin-left: 25%;
+  border-top: 0.25em solid currentColor;
+  opacity: 0.75;
+}
+/* TABLES */
+table {
+  display: table;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  margin: 1.5em auto;
+  /* Note: legacy RMSDK sets auto to 0, which is permitted in a footnote of the EPUB2 specs */
+  font-feature-settings: 'tnum' 1;
+  font-variant-numeric: tabular-nums;
+}
+@media amzn-mobi {
+  table {
+    margin: 1em 0;
+  }
+}
+caption {
+  caption-side: top;
+  /* Note: only value legacy RMSDK supports */
+  adobe-hyphenate: none;
+  /* proprietary for Legacy RMSDK */
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  -epub-hyphens: none;
+  hyphens: none;
+  text-indent: 0;
+  /* Necessary as RS may define text-indent for p */
+  text-align: center;
+  font-weight: 700;
+}
+thead {
+  adobe-hyphenate: none;
+  /* proprietary for Legacy RMSDK */
+  -ms-hyphens: none;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  -epub-hyphens: none;
+  hyphens: none;
+  text-indent: 0;
+  /* Necessary as RS may define text-indent for p */
+  text-align: center;
+}
+tfoot td {
+  font-weight: 600;
+  border-bottom: none;
+}
+th {
+  empty-cells: show;
+  border-bottom: 0.125em solid currentColor;
+  /* Current color = color of text (inverted in night mode) */
+  padding: 0.6875em 1em 0.6875em 1em;
+  text-align: left;
+  font-weight: 700;
+}
+td {
+  empty-cells: show;
+  border-bottom: 0.0625em solid currentColor;
+  /* Current color = color of text (inverted in night mode) */
+  padding: 0.75em 1em 0.6875em 1em;
+  text-align: left;
+}
+.has-fixed-layout {
+  table-layout: fixed;
+}
+/* CODE */
+pre {
+  margin: 1.5em 0 1.5em 5%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  -ms-tab-size: 3;
+  -moz-tab-size: 3;
+  -webkit-tab-size: 3;
+  tab-size: 3;
+}
+@media amzn-mobi {
+  pre {
+    margin: 1em 0;
+  }
+}
+code,
+kbd,
+samp,
+var {
+  font-family: monospace;
+  /* Embed a font cos Kobo doesn't provide a monospace */
+}
+/* CONTAINERS — WRAPPERS */
+.w-100-center {
+  width: auto;
+  /* defaults to 100% but takes borders into account = big win since we can’t rely on box-sizing */
+  margin: 1.5em 0;
+}
+.w-90-center {
+  width: 90%;
+  margin: 1.5em 5%;
+  /* Since we can’t use auto (0 in legacy RMSDK), we must center using % */
+}
+.w-80-center {
+  width: 80%;
+  /* width: 80% -> KF8 bug, see amzn-kf8 query for fix */
+  margin: 1.5em 10%;
+}
+.w-70-center {
+  width: 70%;
+  margin: 1.5em 15%;
+}
+.w-60-center {
+  width: 60%;
+  margin: 1.5em 20%;
+}
+.w-50-center {
+  width: 50%;
+  margin: 1.5em 25%;
+}
+.w-40-center {
+  width: 40%;
+  margin: 1.5em 30%;
+}
+.w-30-center {
+  width: 30%;
+  margin: 1.5em 35%;
+}
+.w-20-center {
+  width: 20%;
+  margin: 1.5em 40%;
+}
+.w-10-center {
+  width: 10%;
+  margin: 1.5em 45%;
+}
+/* Widths */
+.w-100 {
+  width: 100%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-80 {
+  width: 80%;
+}
+@media amzn-kf8 {
+  .w-80 {
+    width: 78%;
+    /* Because Kindle developers… */
+    margin: 1.5em 11%;
+  }
+}
+.w-70 {
+  width: 70%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-10 {
+  width: 10%;
+}
+/* Heights */
+.h-100 {
+  height: 99%;
+  /* 99.8% cos’ legacy RMSDK applies blank page after if 100% */
+}
+.h-90 {
+  height: 90%;
+}
+.h-80 {
+  height: 80%;
+}
+.h-70 {
+  height: 70%;
+}
+.h-60 {
+  height: 60%;
+}
+.h-50 {
+  height: 50%;
+}
+.h-40 {
+  height: 40%;
+}
+.h-30 {
+  height: 30%;
+}
+.h-20 {
+  height: 20%;
+}
+.h-10 {
+  height: 10%;
+}
+@supports (height: 100vh) {
+  /* Can be used for containers and images
+     but Should be used in combination with portrait if used for img */
+  .h-100 {
+    height: 99vh;
+    /* Trying to avoid blank page after */
+  }
+  .h-90 {
+    height: 90vh;
+  }
+  .h-80 {
+    height: 80vh;
+  }
+  .h-70 {
+    height: 70vh;
+  }
+  .h-60 {
+    height: 60vh;
+  }
+  .h-50 {
+    height: 50vh;
+  }
+  .h-40 {
+    height: 40vh;
+  }
+  .h-30 {
+    height: 30vh;
+  }
+  .h-20 {
+    height: 20vh;
+  }
+  .h-10 {
+    height: 10vh;
+  }
+}
+/* Floats */
+/* If there are too many floating elements in a XHTML file,
+performance of legacy RMSDK takes a huge hit (± 4 seconds to
+render page on eInk devices)                                    */
+.alignleft {
+  float: left;
+  margin: 0 1.5% 0 0;
+}
+@media amzn-mobi {
+  .alignleft {
+    float: none;
+    /* Mobi 7 doesn’t support float */
+    margin: 1em 0;
+    text-align: center;
+  }
+}
+.alignright {
+  float: right;
+  margin: 0 0 0 1.5%;
+}
+@media amzn-mobi {
+  .alignright {
+    float: none;
+    margin: 1em 0;
+    text-align: center;
+  }
+}
+/* UTILITIES */
+/* Display */
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.hidden {
+  /* Typical usage: EPUB 3 landmarks inline TOC */
+  display: none;
+}
+/* May be useful for EPUB 3.1, warning .absolute in ePubCheck in EPUB 3.0.1
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+*/
+/* Clearings */
+.clear-both {
+  /* may be useful if an element is floating in a container */
+  clear: both;
+}
+.clear-left {
+  clear: left;
+}
+.clear-right {
+  clear: right;
+}
+/* Bordered content */
+.p-1 {
+  padding: 0.6875em;
+}
+.border {
+  border: 0.0625em solid currentColor;
+  /* Current color = color of text (inverted in night mode) */
+  padding: 0.6875em;
+}
+/* Margins */
+.m-0 {
+  margin: 0;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.ml-0 {
+  margin-left: 0;
+}
+.mr-0 {
+  margin-right: 0;
+}
+.mt-1 {
+  margin-top: 0.75em;
+}
+@media amzn-mobi {
+  .mt-1 {
+    margin-top: 1em;
+  }
+}
+.mt-2 {
+  margin-top: 1.5em;
+}
+@media amzn-mobi {
+  .mt-2 {
+    margin-top: 2em;
+  }
+}
+.mt-3 {
+  margin-top: 3em;
+}
+@media amzn-mobi {
+  .mt-3 {
+    margin-top: 3em;
+  }
+}
+.mt-4 {
+  margin-top: 4.5em;
+}
+@media amzn-mobi {
+  .mt-4 {
+    margin-top: 5em;
+  }
+}
+.mt-5 {
+  margin-top: 6em;
+}
+@media amzn-mobi {
+  .mt-5 {
+    margin-top: 6em;
+  }
+}
+.mb-1 {
+  margin-bottom: 0.75em;
+}
+@media amzn-mobi {
+  .mb-1 {
+    margin-bottom: 1em;
+  }
+}
+.mb-2 {
+  margin-bottom: 1.5em;
+}
+@media amzn-mobi {
+  .mb-2 {
+    margin-bottom: 2em;
+  }
+}
+.mb-3 {
+  margin-bottom: 3em;
+}
+@media amzn-mobi {
+  .mb-3 {
+    margin-bottom: 3em;
+  }
+}
+.mb-4 {
+  margin-bottom: 4.5em;
+}
+@media amzn-mobi {
+  .mb-4 {
+    margin-bottom: 5em;
+  }
+}
+.mb-5 {
+  margin-bottom: 6em;
+}
+@media amzn-mobi {
+  .mb-5 {
+    margin-bottom: 6em;
+  }
+}
+.ml-1 {
+  margin-left: 2.5%;
+  /* % won't reflow with font-size user setting */
+}
+.ml-2 {
+  margin-left: 5%;
+}
+.ml-3 {
+  margin-left: 7.5%;
+}
+.ml-4 {
+  margin-left: 10%;
+}
+.ml-5 {
+  margin-left: 15%;
+}
+.mr-1 {
+  margin-right: 2.5%;
+  /* % won't reflow with font-size user setting */
+}
+.mr-2 {
+  margin-right: 5%;
+}
+.mr-3 {
+  margin-right: 7.5%;
+}
+.mr-4 {
+  margin-right: 10%;
+}
+.mr-5 {
+  margin-right: 15%;
+}
+/* Font-stacks */
+.font-sans {
+  /* Typical usage: headings */
+  font-family: sans-serif;
+}
+.font-serif {
+  font-family: serif;
+}
+.font-mono {
+  font-family: monospace;
+}
+.has-humanist-font-family {
+  font-family: 'Myriad Pro', Seravek, Ember, 'Trebuchet MS', 'BN Trebuchet MS', 'PT Sans', 'Frutiger Neue', Roboto, sans-serif;
+}
+.has-geometric-font-family {
+  font-family: Futura, 'Century Gothic', 'Apple SD Gothic Neo', AppleGothic, sans-serif;
+}
+.has-cardo-font-family {
+  font-family: 'Cardo', 'Minion Pro', 'Iowan Old Style', Palatino, 'Palatino Linotype', 'Palatino Nova', 'BN Amasis', Cambria, FreeSerif, 'Times New Roman', serif;
+}
+.has-inter-font-family {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, 'Roboto', 'Noto Sans', sans-serif;
+}
+.has-modern-font-family {
+  font-family: Athelas, Literata, Bookerly, 'Merriweather Serif', Malabar, 'BN Malabar', Georgia, 'Droid Serif', serif;
+}
+/* Text align */
+.has-text-align-justify {
+  /* Designed as a class for body — We don't enforce as user setting > author */
+  text-align: justify;
+  adobe-hyphenate: auto;
+  /* proprietary for Legacy RMSDK */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -epub-hyphens: auto;
+  hyphens: auto;
+  /* before and after not in spec but iBooks support all three (-webkit-) */
+  -ms-hyphenate-limit-lines: 2;
+  -moz-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 2;
+  /* No support except Trident (Windows) */
+  -ms-hyphenate-limit-chars: 6 3 2;
+  -moz-hyphenate-limit-chars: 6 3 2;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 2;
+  hyphenate-limit-chars: 6 3 2;
+  /* No support except Trident (Windows) */
+  -ms-hyphenate-limit-zone: 10%;
+  -moz-hyphenate-limit-zone: 10%;
+  -webkit-hyphenate-limit-zone: 10%;
+  hyphenate-limit-zone: 10%;
+  /* No support */
+  -ms-hyphenate-limit-last: always;
+  -moz-hyphenate-limit-last: always;
+  -webkit-hyphenate-limit-last: always;
+  hyphenate-limit-last: always;
+}
+.has-text-align-left {
+  text-align: left;
+}
+.has-text-align-center {
+  text-indent: 0;
+  /* Necessary as RS may define text-indent for p */
+  text-align: center;
+}
+.has-text-align-right {
+  text-indent: 0;
+  /* Necessary as RS may define text-indent for p */
+  text-align: right;
+}
+p.has-text-align-justify {
+  text-indent: 1em;
+}
+/* Indents */
+.indent-1 {
+  text-indent: 1em;
+}
+.indent-0 {
+  text-indent: 0;
+}
+.indent-hanging {
+  text-indent: -5%;
+  margin-left: 5%;
+  /* Since em will reflow with font-size user setting, we’re using % */
+}
+@media amzn-mobi {
+  .indent-hanging {
+    margin-left: 0;
+    /* hack for negative text-indent */
+  }
+}
+/* Font sizes */
+.has-small-font-size {
+  font-size: 0.8125em;
+}
+.has-medium-font-size {
+  font-size: 1.25em;
+}
+.has-large-font-size {
+  font-size: 2.25em;
+}
+.has-x-large-font-size {
+  font-size: 2.625em;
+}
+/* Font styles */
+.font-thin {
+  font-weight: 100;
+}
+.font-extralight {
+  font-weight: 200;
+}
+.font-light {
+  font-weight: 300;
+}
+.font-normal {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-extrabold {
+  font-weight: 800;
+}
+.font-black {
+  font-weight: 900;
+}
+/* Don't use that with span if i, cite, dfn or em can be used */
+.italic {
+  font-style: italic;
+}
+.caps-to-small-caps {
+  text-transform: lowercase;
+  /* Don't rely on this property, text should be typed in uppercase (legacy RMSDK) */
+  font-variant-caps: small-caps;
+  letter-spacing: 0.0625em;
+  /* The two previous props are not supported in legacy RMSDK */
+}
+@media amzn-mobi {
+  .caps-to-small-caps {
+    font-size: small;
+  }
+}
+.underline {
+  text-decoration: underline;
+}
+.line-through {
+  text-decoration: line-through;
+}
+/* Misc */
+.list-none {
+  /* Typical usage: hiding numbers in toc */
+  list-style-type: none;
+}
+/* PAGE BREAKS */
+.break-before {
+  page-break-before: always;
+  break-before: always;
+  /* Future according to https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before */
+}
+/* For some reason, after has better support than before (Google, Kobo, etc.) */
+.break-after {
+  page-break-after: always;
+  break-after: always;
+}
+.break-inside-auto {
+  page-break-inside: auto;
+  break-inside: auto;
+}
+/* Let’s pretend it is supported (legacy RMSDK does, others not so much) */
+.break-before-avoid {
+  page-break-before: avoid;
+  break-before: avoid;
+}
+/* Let’s pretend it is supported (legacy RMSDK does, others not so much) */
+.break-after-avoid {
+  page-break-after: avoid;
+  break-after: avoid;
+}
+/* This one works in iBooks, useful for figure or to keep 2 elements together */
+.break-inside-avoid {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+@media amzn-kf8 {
+  .break-inside-avoid {
+    page-break-inside: auto;
+    break-inside: auto;
+    /* Fix blank bug because of page-break-inside: avoid… */
+  }
+}
+/* End CSS */

@@ -3,42 +3,42 @@
 /* Layout */
 
 .horizontal-tb {
-  -ms-writing-mode: lr-tb;
-  -webkit-writing-mode: horizontal-tb;
-  -epub-writing-mode: horizontal-tb;
-  writing-mode: horizontal-tb;
+   -ms-writing-mode: lr-tb;
+   -webkit-writing-mode: horizontal-tb;
+   -epub-writing-mode: horizontal-tb;
+   writing-mode: horizontal-tb;
 }
 
 .vertical-lr {
-  -ms-writing-mode: tb;
-  -webkit-writing-mode: vertical-lr;
-  -epub-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
+   -ms-writing-mode: tb;
+   -webkit-writing-mode: vertical-lr;
+   -epub-writing-mode: vertical-lr;
+   writing-mode: vertical-lr;
 }
-  
+
 .vertical-rl {
-  -ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  -epub-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
+   -ms-writing-mode: tb-rl;
+   -webkit-writing-mode: vertical-rl;
+   -epub-writing-mode: vertical-rl;
+   writing-mode: vertical-rl;
 }
 
 .text-orientation-mixed {
-  -webkit-text-orientation: mixed;
-  -epub-text-orientation: mixed;
-  text-orientation: mixed;
+   -webkit-text-orientation: mixed;
+   -epub-text-orientation: mixed;
+   text-orientation: mixed;
 }
 
 .text-orientation-upright {
-  -webkit-text-orientation: upright;
-  -epub-text-orientation: upright;
-  text-orientation: upright;
+   -webkit-text-orientation: upright;
+   -epub-text-orientation: upright;
+   text-orientation: upright;
 }
 
 .text-orientation-sideways {
-  -webkit-text-orientation: sideways;
-  -epub-text-orientation: sideways;
-  text-orientation: sideways;
+   -webkit-text-orientation: sideways;
+   -epub-text-orientation: sideways;
+   text-orientation: sideways;
 }
 
 /* Note: for direction, use the dir attribute: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir */
@@ -48,228 +48,306 @@
 /* If the language of the document needs another value for italic, modify the .italic mixin in utils/utilities.less. */
 
 .line-break-auto {
-  -ms-line-break: auto;
-  -webkit-line-break: auto;
-  -epub-line-break: auto;
-  line-break: auto;
+   -ms-line-break: auto;
+   -webkit-line-break: auto;
+   -epub-line-break: auto;
+   line-break: auto;
 }
 
 .line-break-loose {
-  -ms-line-break: loose;
-  -webkit-line-break: loose;
-  -epub-line-break: loose;
-  line-break: loose;
+   -ms-line-break: loose;
+   -webkit-line-break: loose;
+   -epub-line-break: loose;
+   line-break: loose;
 }
 
 .line-break-normal {
-  -ms-line-break: normal;
-  -webkit-line-break: normal;
-  -epub-line-break: normal;
-  line-break: normal;
+   -ms-line-break: normal;
+   -webkit-line-break: normal;
+   -epub-line-break: normal;
+   line-break: normal;
 }
-  
+
 .line-break-strict {
-  word-wrap: break-word;
-  -ms-line-break: strict;
-  -webkit-line-break: strict;
-  -epub-line-break: strict;
-  line-break: strict;
+   word-wrap: break-word;
+   -ms-line-break: strict;
+   -webkit-line-break: strict;
+   -epub-line-break: strict;
+   line-break: strict;
 }
 
-.word-break-normal {
-  -ms-word-break: normal;
-  -epub-word-break: normal;
-  word-break: normal;
+.break-normal {
+   -ms-word-break: normal;
+   -epub-word-break: normal;
+   word-break: normal;
 }
 
-.word-break-all {
-  -ms-word-break: break-all;
-  -epub-word-break: break-all;
-  word-break: break-all;
+.break-all {
+   -ms-word-break: break-all;
+   -epub-word-break: break-all;
+   word-break: break-all;
 }
 
-.word-keep-all {
-  -ms-word-break: keep-all;
-  -epub-word-break: keep-all;
-  word-break: keep-all;
+.break-keep {
+   -ms-word-break: keep-all;
+   -epub-word-break: keep-all;
+   word-break: keep-all;
 }
-  
+
 .hanging-punc {
-  hanging-punctuation: last allow-end;
+   hanging-punctuation: last allow-end;
 }
 
 .emphasis-filled-sesame {
-  .text-emphasis(filled sesame);
+   .text-emphasis(filled sesame);
 }
 
 .emphasis-open-sesame {
-  .text-emphasis(open sesame);
+   .text-emphasis(open sesame);
 }
 
 .emphasis-filled-dot {
-  .text-emphasis(filled dot);
+   .text-emphasis(filled dot);
 }
 
 .emphasis-open-dot {
-  .text-emphasis(open dot);
+   .text-emphasis(open dot);
 }
 
 .emphasis-filled-triangle {
-  .text-emphasis(filled triangle);
+   .text-emphasis(filled triangle);
 }
 
 .emphasis-open-triangle {
-  .text-emphasis(open triangle);
+   .text-emphasis(open triangle);
 }
 
 .emphasis-filled-circle {
-  .text-emphasis(filled circle);
+   .text-emphasis(filled circle);
 }
 
 .emphasis-open-circle {
-  .text-emphasis(open circle);
+   .text-emphasis(open circle);
 }
 
 .emphasis-filled-double-circle {
-  .text-emphasis(filled double circle);
+   .text-emphasis(filled double circle);
 }
 
 .emphasis-open-double-circle {
-  .text-emphasis(open double circle);
+   .text-emphasis(open double circle);
 }
 
 .tate-chu-yoko {
-  -ms-text-combine-horizontal: all;
-  -webkit-text-combine: horizontal;
-  -epub-text-combine: horizontal;
-  -epub-text-combine-horizontal: all;
-  text-combine-upright: all;
+   -ms-text-combine-horizontal: all;
+   -webkit-text-combine: horizontal;
+   -epub-text-combine: horizontal;
+   -epub-text-combine-horizontal: all;
+   text-combine-upright: all;
 }
 
 .full-width-transform {
-  text-transform: -epub-fullwidth;
-  text-transform: full-width;
+   text-transform: -epub-fullwidth;
+   text-transform: full-width;
 }
 
 /* Font Families (class = language code or body/p with lang attribute set) */
 
-.am, body:lang(am), p:lang(am), span:lang(am) {
-  font-family: @am;
+.am,
+body:lang(am),
+p:lang(am),
+span:lang(am) {
+   font-family: @am;
 }
 
-.ar, body:lang(ar), p:lang(ar), span:lang(ar) {
-  font-family: @ar;
+.ar,
+body:lang(ar),
+p:lang(ar),
+span:lang(ar) {
+   font-family: @ar;
 }
 
-.bn, body:lang(bn), p:lang(bn), span:lang(bn) {
-  font-family: @bn;
+.bn,
+body:lang(bn),
+p:lang(bn),
+span:lang(bn) {
+   font-family: @bn;
 }
 
-.bo, body:lang(bo), p:lang(bo), span:lang(bo) {
-  font-family: @bo;
+.bo,
+body:lang(bo),
+p:lang(bo),
+span:lang(bo) {
+   font-family: @bo;
 }
 
-.chr, body:lang(chr), p:lang(chr), span:lang(chr) {
-  font-family: @chr;
+.chr,
+body:lang(chr),
+p:lang(chr),
+span:lang(chr) {
+   font-family: @chr;
 }
 
-.fa, body:lang(fa), p:lang(fa), span:lang(fa) {
-  font-family: @fa;
+.fa,
+body:lang(fa),
+p:lang(fa),
+span:lang(fa) {
+   font-family: @fa;
 }
 
-.gu, body:lang(gu), p:lang(gu), span:lang(gu) {
-  font-family: @gu;
+.gu,
+body:lang(gu),
+p:lang(gu),
+span:lang(gu) {
+   font-family: @gu;
 }
 
-.he, body:lang(he), p:lang(he), span:lang(he) {
-  font-family: @he;
+.he,
+body:lang(he),
+p:lang(he),
+span:lang(he) {
+   font-family: @he;
 }
 
-.hi, body:lang(hi), p:lang(hi), span:lang(hi) {
-  font-family: @hi;
+.hi,
+body:lang(hi),
+p:lang(hi),
+span:lang(hi) {
+   font-family: @hi;
 }
 
-.hy, body:lang(hy), p:lang(hy), span:lang(hy) {
-  font-family: @hy;
+.hy,
+body:lang(hy),
+p:lang(hy),
+span:lang(hy) {
+   font-family: @hy;
 }
 
-.iu, body:lang(iu), p:lang(iu), span:lang(iu) {
-  font-family: @iu;
+.iu,
+body:lang(iu),
+p:lang(iu),
+span:lang(iu) {
+   font-family: @iu;
 }
 
-.ja, body:lang(ja), p:lang(ja), span:lang(ja) {
-  font-family: @ja; 
+.ja,
+body:lang(ja),
+p:lang(ja),
+span:lang(ja) {
+   font-family: @ja;
 }
 
 .ja-serif-horizontal {
-  font-family: @ja-serif-horizontal;
+   font-family: @ja-serif-horizontal;
 }
 
-.ja-sans-serif-horizontal { 
-  font-family: @ja-sans-serif-horizontal;
+.ja-sans-serif-horizontal {
+   font-family: @ja-sans-serif-horizontal;
 }
 
-.ja-serif-vertical { 
-  font-family: @ja-serif-vertical;
+.ja-serif-vertical {
+   font-family: @ja-serif-vertical;
 }
 
 .ja-sans-serif-vertical {
-  font-family: @ja-sans-serif-vertical;
+   font-family: @ja-sans-serif-vertical;
 }
 
-.km, body:lang(km), p:lang(km), span:lang(km) {
-  font-family: @km;
+.km,
+body:lang(km),
+p:lang(km),
+span:lang(km) {
+   font-family: @km;
 }
 
-.kn, body:lang(kn), p:lang(kn), span:lang(kn) {
-  font-family: @kn;
+.kn,
+body:lang(kn),
+p:lang(kn),
+span:lang(kn) {
+   font-family: @kn;
 }
 
-.ko, body:lang(ko), p:lang(ko), span:lang(ko) {
-  font-family: @ko;
+.ko,
+body:lang(ko),
+p:lang(ko),
+span:lang(ko) {
+   font-family: @ko;
 }
 
-.lo, body:lang(lo), p:lang(lo), span:lang(lo) {
-  font-family: @lo;
+.lo,
+body:lang(lo),
+p:lang(lo),
+span:lang(lo) {
+   font-family: @lo;
 }
 
-.ml, body:lang(ml), p:lang(ml), span:lang(ml) {
-  font-family: @ml;
+.ml,
+body:lang(ml),
+p:lang(ml),
+span:lang(ml) {
+   font-family: @ml;
 }
 
-.or, body:lang(or), p:lang(or), span:lang(or) {
-  font-family: @or;
+.or,
+body:lang(or),
+p:lang(or),
+span:lang(or) {
+   font-family: @or;
 }
 
-.pa, body:lang(pa), p:lang(pa), span:lang(pa) {
-  font-family: @pa;
+.pa,
+body:lang(pa),
+p:lang(pa),
+span:lang(pa) {
+   font-family: @pa;
 }
 
-.si, body:lang(si), p:lang(si), span:lang(si) {
-  font-family: @si;
+.si,
+body:lang(si),
+p:lang(si),
+span:lang(si) {
+   font-family: @si;
 }
 
-.ta, body:lang(ta), p:lang(ta), span:lang(ta) {
-  font-family: @ta;
+.ta,
+body:lang(ta),
+p:lang(ta),
+span:lang(ta) {
+   font-family: @ta;
 }
 
-.te, body:lang(te), p:lang(te), span:lang(te) {
-  font-family: @te;
+.te,
+body:lang(te),
+p:lang(te),
+span:lang(te) {
+   font-family: @te;
 }
 
-.th, body:lang(th), p:lang(th), span:lang(th) {
-  font-family: @th;
+.th,
+body:lang(th),
+p:lang(th),
+span:lang(th) {
+   font-family: @th;
 }
 
-.zh, body:lang(zh), p:lang(zh), span:lang(zh) {
-  font-family: @zh;
+.zh,
+body:lang(zh),
+p:lang(zh),
+span:lang(zh) {
+   font-family: @zh;
 }
 
 .zh-Hant,
-.zh-TW, body:lang(zh-TW), p:lang(zh-TW), span:lang(zh-TW) {
-  font-family: @zh-Hant;
+.zh-TW,
+body:lang(zh-TW),
+p:lang(zh-TW),
+span:lang(zh-TW) {
+   font-family: @zh-Hant;
 }
 
-.zh-HK, body:lang(zh-HK), p:lang(zh-HK), span:lang(zh-HK) {
-  font-family: @zh-HK;
+.zh-HK,
+body:lang(zh-HK),
+p:lang(zh-HK),
+span:lang(zh-HK) {
+   font-family: @zh-HK;
 }
