@@ -1,11 +1,17 @@
 /* TYPOGRAPHY */
 
 h1,
+.h1,
 h2,
+.h2,
 h3,
+.h3,
 h4,
+.h4,
 h5,
+.h5,
 h6,
+.h6,
 blockquote p cite,
 dt,
 pre,
@@ -22,11 +28,17 @@ td,
 }
 
 h1,
+.h1,
 h2,
+.h2,
 h3,
+.h3,
 h4,
+.h4,
 h5,
+.h5,
 h6,
+.h6,
 dt,
 hr {
    .break-inside-avoid;
@@ -35,7 +47,8 @@ hr {
 
 .apply-header-font();
 
-h1 {
+h1,
+.h1 {
    .rhythm(3, 0, 2);
 
    & when (@handle-kindle) {
@@ -46,7 +59,8 @@ h1 {
    }
 }
 
-h2 {
+h2,
+.h2 {
    .rhythm(2, 2, 1);
 
    & when (@handle-kindle) {
@@ -57,7 +71,8 @@ h2 {
    }
 }
 
-h3 {
+h3,
+.h3 {
    .rhythm(1, 1, 1);
 
    & when (@handle-kindle) {
@@ -68,7 +83,8 @@ h3 {
    }
 }
 
-h4 {
+h4,
+.h4 {
    .indent-1;
    .rhythm(0, 1, 0);
 
@@ -80,12 +96,14 @@ h4 {
    }
 }
 
-h5 {
+h5,
+.h5 {
    .indent-1;
    .font-semibold;
 }
 
-h6 {
+h6,
+.h6 {
    .indent-1;
    .font-semibold;
 }
